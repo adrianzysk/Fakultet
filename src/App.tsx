@@ -1,28 +1,28 @@
-import React, { useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import Movie from './views/movie/Movie';
+import SearchMovie from './views/searchMovie/SearchMovie';
+import Home from './views/home/Home';
 
-function App() {
-    const [count, setCount] = useState(0)
-    const handleClickPlus = () => {
-       setCount(count + 1)
-    }
-    const handleClickMinus = () => {
-        setCount(count - 1)
-    }
-    return (
-       <div>
-             <button onClick={handleClickPlus}>+</button>
-             <h1>{count}</h1>
-             <button onClick={handleClickMinus}>-</button>
-            {
-                count > 5 && <h1>{'wiêcej ni¿ 5'}</h1>
-            }
-            {
-                count < 0 && <h1>{'mniej ni¿ 0'}</h1>
-            }
-       </div>
-    )
-}
+//yarn add @types/react-router-dom  @types/react-router
+
+
+const App = () => {
+  return (
+    <div>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/movie" component={Movie} />
+          <Route path="/search" component={SearchMovie} />
+          <Route path="/" component={Home} />
+        </Switch>
+      </BrowserRouter>
+    </div>
+  );
+};
 
 export default App;
+
+
+
+
