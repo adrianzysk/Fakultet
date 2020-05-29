@@ -9,7 +9,7 @@ const NavPanel = () => {
     return (
         <>
             <MenuBar onIconClick={() => setDrawerOpen(true)} />
-            <DrawerComponent shouldBeOpen={drawerOpen} onClick={() => setDrawerOpen(false)} />
+            <DrawerComponent shouldBeOpen={drawerOpen} />
         </>
     );
 }
