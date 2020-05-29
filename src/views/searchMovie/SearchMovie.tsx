@@ -26,7 +26,7 @@ const SearchMovie = () => {
   const [movies, setMovies] = React.useState<IMoviesProps | null>(null);
   const [movieToSearch, setMovieToSearch] = React.useState('');
   const history = useHistory();
-  const redirectTo = (path: string, name: string, params: string) => <div onClick={() => history.push(path, { id: params })}>{name}</div>;
+  const redirectTo = (path: string, name: string) => <div onClick={() => history.push(path)}>{name}</div>;
   const todoService = useService(TodoService);
 
   React.useEffect(() => {
@@ -64,7 +64,7 @@ const SearchMovie = () => {
                 <TableCell>
                   <img src={movie.poster}
                        alt={movie.title} />
-                  <h1>{redirectTo('/movie/' + movie.id, 'Opis', movie.id)}</h1>
+                  <h1>{redirectTo('/movie/'+movie.id+'/'+movie.title, 'Opis')}</h1>
                   <button onClick={() => todoService.setNewTodo({ done: false, title: movie.title, poster: movie.poster, year: movie.year, id: movie.id })}>Dodaj</button>
                 </TableCell>                     
                 <TableCell align="right"> {movie.title}</TableCell>

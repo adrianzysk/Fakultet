@@ -19,9 +19,8 @@ const App = () => {
           <Switch>
             <Route path="/moviesaved" component={SavedMovie}/>
             <Route path="/search" component={SearchMovie} />
-            <Route path="/movie" component={Movie} />
             <Route path="/todo" component={TodoPanel} />
-            <Route path="/movie/:id" component={Movie} />
+            <Route path="/movie/:id/:title" component={Movie} />
             <Route path="/" component={Home}/>
           </Switch>
         </Provider>
